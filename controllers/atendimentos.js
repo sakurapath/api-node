@@ -1,7 +1,17 @@
+const { lista, buscaPorId } = require('../models/atendimentos')
 const Atendimento = require('../models/atendimentos')
 
 module.exports = app => {
-    app.get('/atendimentos', (req, res) => res.send('voce esta na rota de atendimentos e esta realizando um get'))
+    app.get('/atendimentos', (req, res) => {
+        lista(res)
+    })
+
+    app.get('/atendimentos/:id', (req, res) => {
+
+        const id = parseInt(req.params.id)
+
+        buscaPorId(id, res)
+    })
 
     app.post('/atendimentos', (req, res) => {
         const atendimento = req.body
