@@ -18,5 +18,19 @@ module.exports = app => {
         Atendimento.adiciona(atendimento, res)
         res.send('Adicionado com sucesso')
     })
+
+    app.patch('/atendimentos/:id', (req, res) => {
+        const atendimento = parseInt(req.params.id)
+
+        const values = req.body
+
+        Atendimento.atualiza(atendimento, values, res)
+    })
+
+    app.delete('/atendimentos/:id', (req, res) => {
+        const index = parseInt(req.params.id)
+
+        Atendimento.deleta(index, res)
+    })
 }
 
