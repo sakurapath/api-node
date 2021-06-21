@@ -97,5 +97,5 @@ class Atendimento {
         })
     }
 }
-
-module.exports = new Atendimento
+//Funciona com ou sem parenteses, NICE
+module.exports = new Atendimento()
